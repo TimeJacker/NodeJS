@@ -3,18 +3,18 @@ import bodyParser from "body-parser";
 import viewEngine from "./config/viewEngine";
 import initWebRoutes from "./route/web";
 import connectDB from "./config/connectDB";
-// import cors from 'cors';
+import cors from 'cors';
 require('dotenv').config();
 
 let app = express();
 // app.use(cors({ origin: true }));
-const cors = require('cors');
+// const cors = require('cors');
 const corsOptions = {
     origin: 'http://localhost:3000',
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200
 }
-app.use(cors(corsOptions));
+app.use(cors({ credentials: true, origin: true }));
 //config app
 
 app.use(bodyParser.json());
